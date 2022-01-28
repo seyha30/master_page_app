@@ -14,10 +14,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) {
-          var pageData = PageData();
-          return pageData;
-        }),
+        ChangeNotifierProvider(
+          create: (context) {
+          return PageData();
+          },
+        ),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

@@ -102,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   title: Text("Title"),
                                   subtitle: Text("Subtitle")),
                             ),
-                            //Spacer(),
+                            Spacer(),
                           ],
                         ),
                       ),
@@ -119,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: IndexedStack(
                     children: pages,
                     index: pageData.currentPage,
-                  ));
+               ));
             },
           ),
           key: null,
@@ -150,7 +150,7 @@ class _VerticalSplitViewState extends State<VerticalSplitView> {
   final _dividerWidth = 16.0;
   //from 0-1
   late double _ratio;
-  late double _maxWidth = 10000;
+  late double _maxWidth = 100;
 
   get _width1 => _ratio * _maxWidth;
 
@@ -171,7 +171,6 @@ class _VerticalSplitViewState extends State<VerticalSplitView> {
       if (_maxWidth != constraints.maxWidth) {
         _maxWidth = constraints.maxWidth - _dividerWidth;
       }
-
       return SizedBox(
         width: constraints.maxWidth,
         child: Row(
@@ -185,7 +184,7 @@ class _VerticalSplitViewState extends State<VerticalSplitView> {
               child: SizedBox(
                 width: _dividerWidth,
                 height: constraints.maxHeight,
-                child: RotationTransition(
+                child: const RotationTransition(
                   child: Icon(Icons.drag_handle),
                   turns: AlwaysStoppedAnimation(0.25),
                 ),

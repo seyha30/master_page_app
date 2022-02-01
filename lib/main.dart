@@ -8,7 +8,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -16,12 +15,13 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) {
-          return PageData();
+            return PageData();
           },
         ),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        title: 'Side Menu app',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
@@ -42,8 +42,19 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   // Set required page same as list length in left of VerticalSplitView
-  List<Widget> pages = const [
-    Text('Page1'),
+  List<Widget> pages = [
+    Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Container(
+          height: 50.0,
+          decoration: BoxDecoration(
+            color: Colors.red,
+            border: Border.all(color: Colors.blue),
+          ),
+        )
+      ],
+    ),
     Text('Page2'),
     Text('Page3'),
     Text('Page4'),
@@ -119,7 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: IndexedStack(
                     children: pages,
                     index: pageData.currentPage,
-               ));
+                  ));
             },
           ),
           key: null,

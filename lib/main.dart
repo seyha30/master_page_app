@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:master_page_app/home_screen.dart';
 import 'package:provider/provider.dart';
 import 'page_data.dart';
 
@@ -43,6 +44,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   // Set required page same as list length in left of VerticalSplitView
   List<Widget> pages = [
+    HomeScreen(),
     Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
